@@ -1,5 +1,6 @@
 // 重复添加同样的依赖，以保证Spellbook能够独立编译
-buildscript {
+buildscript { 
+
     ext {
         dokka_version = '0.9.17'
         kotlin_version = '1.3.30'
@@ -28,6 +29,8 @@ allprojects {
         maven {
             url "https://maven.aliyun.com/repository/google"
         }
+        maven { url 'https://jitpack.io' }
+
 
     }
 }
