@@ -1,4 +1,4 @@
-package com.linwoain.demo
+package com.linwoain.demo.ui
 
 import android.app.Activity
 import android.content.Context

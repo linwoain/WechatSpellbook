@@ -114,10 +114,10 @@ object WechatGlobal {
         } else {
             lazy(LazyThreadSafetyMode.PUBLICATION) {
                 when (null) {
-                    wxVersion     -> throw Error("Invalid wxVersion")
-                    wxPackageName -> throw Error("Invalid wxPackageName")
-                    wxLoader      -> throw Error("Invalid wxLoader")
-                    wxClasses     -> throw Error("Invalid wxClasses")
+                    wxVersion     -> throw Error("Invalid wxVersion $name")
+                    wxPackageName -> throw Error("Invalid wxPackageName $name")
+                    wxLoader      -> throw Error("Invalid wxLoader $name")
+                    wxClasses     -> throw Error("Invalid wxClasses $name")
                 }
                 initializer() ?: throw Error("Failed to evaluate $name")
             }

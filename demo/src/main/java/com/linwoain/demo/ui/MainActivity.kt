@@ -1,7 +1,9 @@
-package com.linwoain.demo
+package com.linwoain.demo.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.linwoain.demo.R
+import com.linwoain.demo.utils.RootCmd
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -28,7 +30,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = packageManager.getLaunchIntentForPackage(TARGET)
                 startActivity(intent)
             } else {
-                log("打开支付宝失败")
+                log("打开微信失败")
             }
 
         }

@@ -1,14 +1,14 @@
 package com.linwoain.demo
 
 import com.gh0u1l5.wechatmagician.spellbook.SpellBook
+import com.linwoain.demo.hook.*
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy
-import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class WechatHook : IXposedHookLoadPackage {
-    override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+class WechatHook {
+    fun dispatch(lpparam: XC_LoadPackage.LoadPackageParam) {
         try {
             if (SpellBook.isImportantWechatProcess(lpparam)) {
                 val strategy = PrettyFormatStrategy.newBuilder()
@@ -19,8 +19,14 @@ class WechatHook : IXposedHookLoadPackage {
                         .build()
                 Logger.addLogAdapter(AndroidLogAdapter(strategy))
 
-                log("Hello MyWechat!!!")
-                SpellBook.startup(lpparam, listOf())
+                SpellBook.startup(lpparam, listOf(
+//                        MyActivity,
+//                        WLog,
+//                        FileHook,
+//                        AdapterHook,
+//                        ImageHook,
+                        Message
+                ))
             }
         } catch (e: Exception) {
             Logger.e("微信报错", e)
