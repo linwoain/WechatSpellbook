@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Build.VERSION
 import com.linwoain.demo.BuildConfig
 import com.linwoain.demo.WechatHook
+import com.linwoain.demo.ui.log
 import dalvik.system.PathClassLoader
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XposedHelpers.*
@@ -17,6 +18,7 @@ import java.io.File
 class HookManager : IXposedHookLoadPackage {
 
     override fun handleLoadPackage(loadpackageParam: XC_LoadPackage.LoadPackageParam) {
+      log(loadpackageParam.processName)
 
         if (VERSION.SDK_INT > 25) {
             WechatHook().dispatch(loadpackageParam)

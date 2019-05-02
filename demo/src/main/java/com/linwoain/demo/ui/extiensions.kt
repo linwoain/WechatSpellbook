@@ -20,7 +20,7 @@ fun log(msg: Any?) {
 }
 
 fun loge(msg: String?) {
-  Log.e("XPOSED_HOT_TAG", msg)
+  Log.e("WechatSpellBook", msg)
 }
 
 fun Any?.applyLog() {

@@ -7,5 +7,9 @@ import com.gh0u1l5.wechatmagician.spellbook.util.ReflectionUtil.findFieldsWithGe
 import java.lang.reflect.Field
 
 object Fields {
-
+    val ImgInfoStorage_mBitmapCache: Field by wxLazy("ImgInfoStorage_mBitmapCache") {
+        findFieldsWithGenericType(
+                ImgInfoStorage, "${LruCacheWithListener.canonicalName}<java.lang.String, android.graphics.Bitmap>")
+                .firstOrNull()?.apply { isAccessible = true }
+    }
 }

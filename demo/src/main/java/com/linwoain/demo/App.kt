@@ -12,7 +12,7 @@ class App : Application() {
                 .methodCount(1)
                 .showThreadInfo(false)
                 .methodOffset(1)
-                .tag("XPOSED_HOT_TAG")
+                .tag("WechatSpellBook")
                 .build()
         Logger.addLogAdapter(AndroidLogAdapter(strategy))
     }
